@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
 import { usePosts } from '../../Post/hooks/usePosts';
 import PostCard from '../../Post/components/PostCard';
 
@@ -8,8 +8,8 @@ const Home = () => {
 
   if (loading) {
     return (
-      <View style={styles.container}>
-        <Text>Loading...</Text>
+      <View style={[styles.container, styles.center]}>
+        <ActivityIndicator size="large" />
       </View>
     );
   }
@@ -28,6 +28,10 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  center: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
