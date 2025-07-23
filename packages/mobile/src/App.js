@@ -2,16 +2,16 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import HomeScreen from './src/screens/HomeScreen';
-import LoginScreen from './src/screens/LoginScreen';
-import RegisterScreen from './src/screens/RegisterScreen';
-import ProfileScreen from './src/screens/ProfileScreen';
-import PostScreen from './src/screens/PostScreen';
-import GroupScreen from './src/screens/GroupScreen';
-import EventScreen from './src/screens/EventScreen';
-import MentorshipScreen from './src/screens/MentorshipScreen';
-import DiscipleshipScreen from './src/screens/DiscipleshipScreen';
-import SpiritualGiftsAssessmentScreen from './src/screens/SpiritualGiftsAssessmentScreen';
+import HomeScreen from '../../shared/src/features/Home/components/Home';
+import LoginScreen from '../../shared/src/features/Login/components/Login';
+import RegisterScreen from '../../shared/src/features/Register/components/Register';
+import ProfileScreen from '../../shared/src/features/Profile/components/Profile';
+import PostScreen from '../../shared/src/features/Post/components/Post';
+import GroupScreen from '../../shared/src/features/Group/components/Group';
+import EventScreen from '../../shared/src/features/Event/components/Event';
+import MentorshipScreen from '../../shared/src/features/Mentorship/components/Mentorship';
+import DiscipleshipScreen from '../../shared/src/features/Discipleship/components/Discipleship';
+import SpiritualGiftsAssessmentScreen from '../../shared/src/features/SpiritualGiftsAssessment/components/SpiritualGiftsAssessment';
 
 const Stack = createNativeStackNavigator();
 
