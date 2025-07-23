@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Profile from './pages/Profile';
-import Post from './pages/Post';
-import Group from './pages/Group';
-import Event from './pages/Event';
-import Mentorship from './pages/Mentorship';
-import Discipleship from './pages/Discipleship';
-import SpiritualGiftsAssessment from './pages/SpiritualGiftsAssessment';
+import Home from '../../shared/src/features/Home/components/Home';
+import Login from '../../shared/src/features/Auth/components/Login';
+import Register from '../../shared/src/features/Auth/components/Register';
+import Profile from '../../shared/src/features/Profile/components/Profile';
+import Post from '../../shared/src/features/Post/components/Post';
+import Group from '../../shared/src/features/Group/components/Group';
+import Event from '../../shared/src/features/Event/components/Event';
+import Mentorship from '../../shared/src/features/Mentorship/components/Mentorship';
+import Discipleship from '../../shared/src/features/Discipleship/components/Discipleship';
+import SpiritualGiftsAssessment from '../../shared/src/features/SpiritualGiftsAssessment/components/SpiritualGiftsAssessment';
 
 function App() {
   return (

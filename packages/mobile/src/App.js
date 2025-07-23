@@ -3,8 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from '../../shared/src/features/Home/components/Home';
-import LoginScreen from '../../shared/src/features/Login/components/Login';
-import RegisterScreen from '../../shared/src/features/Register/components/Register';
+import LoginScreen from '../../shared/src/features/Auth/components/Login';
+import RegisterScreen from '../../shared/src/features/Auth/components/Register';
 import ProfileScreen from '../../shared/src/features/Profile/components/Profile';
 import PostScreen from '../../shared/src/features/Post/components/Post';
 import GroupScreen from '../../shared/src/features/Group/components/Group';
