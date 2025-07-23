@@ -22,11 +22,13 @@ export const useAuth = () => {
     };
   }, []);
 
-  const login = async (email, password) => {
+  const login = async (email, password, callback) => {
     setLoading(true);
     const { error } = await supabase.auth.signIn({ email, password });
     if (error) {
       alert(error.message);
+    } else {
+      callback();
     }
     setLoading(false);
   };

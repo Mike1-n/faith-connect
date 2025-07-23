@@ -44,19 +44,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 16,
+    backgroundColor: '#fafafa',
   },
   title: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 24,
+    fontFamily: 'notoserif',
   },
   input: {
-    height: 40,
-    borderColor: 'gray',
+    height: 48,
+    borderColor: '#dbdbdb',
     borderWidth: 1,
     marginBottom: 12,
-    paddingHorizontal: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    backgroundColor: '#fff',
   },
 });
 

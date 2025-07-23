@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Platform } from 'react-native';
+import { useAuth } from '../hooks/useAuth';
+import { useNavigation } from '@react-navigation/native';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login } = useAuth();
+  const navigation = Platform.OS === 'web' ? useNavigate() : useNavigation();
 
   const handleLogin = () => {
-    // Handle login logic here
+    login(email, password, () => {
+      navigation.navigate('Home');
+    });
   };
 
   return (
@@ -36,19 +43,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 16,
+    backgroundColor: '#fafafa',
   },
   title: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 24,
+    fontFamily: 'notoserif',
   },
   input: {
-    height: 40,
-    borderColor: 'gray',
+    height: 48,
+    borderColor: '#dbdbdb',
     borderWidth: 1,
     marginBottom: 12,
-    paddingHorizontal: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    backgroundColor: '#fff',
   },
 });
 
