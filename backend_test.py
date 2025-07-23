@@ -114,7 +114,8 @@ class BackendTester:
         try:
             response = requests.get(f"{BASE_URL}/posts")
             if response.status_code == 200:
-                self.log_test("GET /posts", True, "Retrieved posts successfully")
+                posts_data = response.json()
+                self.log_test("GET /posts", True, f"Retrieved posts successfully (found {len(posts_data)} posts)")
             elif response.status_code == 500 and "does not exist" in response.text:
                 self.log_test("GET /posts", False, "Database table 'posts' does not exist")
             else:
@@ -122,9 +123,29 @@ class BackendTester:
         except Exception as e:
             self.log_test("GET /posts", False, f"Request failed: {str(e)}")
         
-        # Test POST /posts (Create post)
+        # Test POST /posts (Create post) - First create a user
+        user_data = {
+            "username": "test_poster",
+            "email": "poster@faithconnect.com", 
+            "password": "blessed123"
+        }
+        
+        # Try to create a user first
+        user_id = None
+        try:
+            user_response = requests.post(f"{BASE_URL}/users", json=user_data)
+            if user_response.status_code == 200:
+                user_result = user_response.json()
+                user_id = user_result.get('id') if user_result else None
+        except:
+            pass
+        
+        # Use a sample UUID if user creation failed
+        if not user_id:
+            user_id = "550e8400-e29b-41d4-a716-446655440000"
+        
         post_data = {
-            "user_id": "550e8400-e29b-41d4-a716-446655440000",  # Sample UUID
+            "user_id": user_id,
             "content": "Blessed to share God's love today! 🙏 #Faith #Blessed"
         }
         
@@ -137,6 +158,8 @@ class BackendTester:
                 error_msg = response.json().get('error', 'Unknown error')
                 if "does not exist" in error_msg:
                     self.log_test("POST /posts", False, "Database table 'posts' does not exist")
+                elif "row-level security" in error_msg:
+                    self.log_test("POST /posts", False, "Row-level security policy blocking insert (RLS needs configuration)")
                 else:
                     self.log_test("POST /posts", False, f"Database error: {error_msg}")
             else:
